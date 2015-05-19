@@ -1,0 +1,5 @@
+# required for make check
+pylint
+pep8
+python-nose
+python-ply
