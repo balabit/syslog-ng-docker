@@ -24,7 +24,7 @@ systemd-container-devel
 # required for make
 make
 # required for make check
-# FIXME
+python-pip
 # required for configure in incubator
 libmongo-client-devel
 lua-devel
