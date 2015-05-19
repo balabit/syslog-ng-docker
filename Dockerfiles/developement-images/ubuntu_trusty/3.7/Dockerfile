@@ -1,5 +1,5 @@
 # generated image name from this dockerfile: ubuntu_syslog_ng_dev_37
-FROM mitzkia/ubuntu_base_for_syslog_ng:latest
+FROM balabit/ubuntu_base_for_syslog_ng:latest
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ENV BRANCH_NAME="master"

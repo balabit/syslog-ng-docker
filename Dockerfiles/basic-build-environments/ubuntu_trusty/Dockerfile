@@ -13,5 +13,5 @@ RUN cat ubuntu_pip_requirements.txt | grep -v "#" | xargs pip install
 ADD ubuntu_github_requirements.sh .
 RUN ./ubuntu_github_requirements.sh
 
-RUN git clone https://github.com/mitzkia/syslog-ng-ose-docker-new.git
-ENV SELF_BUILD_SCRIPT_DIR="/syslog-ng-ose-docker-new/shared-resources/build-scripts/"
+RUN git clone https://github.com/balabit/syslog-ng-docker.git
+ENV SELF_BUILD_SCRIPT_DIR="/syslog-ng-docker/shared-resources/build-scripts/"

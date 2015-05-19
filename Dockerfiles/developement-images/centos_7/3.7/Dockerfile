@@ -1,5 +1,5 @@
 # generated image name from this dockerfile: centos_syslog_ng_dev_37
-FROM mitzkia/centos_base_for_syslog_ng:latest
+FROM balabit/centos_base_for_syslog_ng:latest
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ENV BRANCH_NAME="master"
