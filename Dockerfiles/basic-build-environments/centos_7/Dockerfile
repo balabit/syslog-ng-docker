@@ -8,5 +8,5 @@ RUN yum update -y && yum install -y epel-release git
 ADD centos_rpm_requirements.txt .
 RUN cat centos_rpm_requirements.txt | grep -v "#" | xargs yum install -y
 
-RUN git clone https://github.com/mitzkia/syslog-ng-ose-docker-new.git
-ENV SELF_BUILD_SCRIPT_DIR="/syslog-ng-ose-docker-new/shared-resources/build-scripts/"
+RUN git clone https://github.com/balabit/syslog-ng-docker.git
+ENV SELF_BUILD_SCRIPT_DIR="/syslog-ng-docker/shared-resources/build-scripts/"

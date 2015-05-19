@@ -1,5 +1,5 @@
 # generated image name from this dockerfile: debian_syslog_ng_dev_36
-FROM mitzkia/debian_base_for_syslog_ng:latest
+FROM balabit/debian_base_for_syslog_ng:latest
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ENV BRANCH_NAME="3.6/master"
