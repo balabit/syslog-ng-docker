@@ -3,6 +3,7 @@ FROM centos:latest
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ADD https://copr.fedoraproject.org/coprs/czanik/syslog-ng37/repo/epel-7/czanik-syslog-ng37-epel-7.repo /etc/yum.repos.d/
+ADD https://copr.fedoraproject.org/coprs/czanik/syslog-ng36/repo/epel-7/czanik-syslog-ng36-epel-7.repo /etc/yum.repos.d/
 RUN yum update -y && yum install -y epel-release git
 
 ADD centos_rpm_requirements.txt .
