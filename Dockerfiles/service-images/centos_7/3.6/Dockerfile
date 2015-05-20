@@ -14,6 +14,7 @@ RUN yum install -y \
   syslog-ng-redis \
   syslog-ng-riemann \
   syslog-ng-smtp \
+  syslog-ng-incubator \
   syslog-ng
 
 CMD ["/sbin/syslog-ng", "-Fedv"]
