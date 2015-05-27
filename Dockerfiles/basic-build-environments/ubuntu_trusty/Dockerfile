@@ -13,5 +13,10 @@ RUN cat ubuntu_pip_requirements.txt | grep -v "#" | xargs pip install
 ADD ubuntu_github_requirements.sh .
 RUN ./ubuntu_github_requirements.sh
 
-RUN git clone https://github.com/balabit/syslog-ng-docker.git
-ENV SELF_BUILD_SCRIPT_DIR="/syslog-ng-docker/shared-resources/build-scripts/"
+ENV INSTALL_DIR=/opt/syslog-ng
+ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:${INSTALL_DIR}/lib/pkgconfig:/usr/local/lib/pkgconfig/
+ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre/
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/:/usr/local/lib/
+
+ADD checkout_and_build_syslog_ng.sh /checkout_and_build_syslog_ng.sh
+ADD checkout_and_build_syslog_ng_incubator.sh /checkout_and_build_syslog_ng_incubator.sh

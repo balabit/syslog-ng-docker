@@ -15,5 +15,7 @@ RUN yum install -y \
   syslog-ng-riemann \
   syslog-ng-smtp \
   syslog-ng
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1.x86_64/jre/
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1.x86_64/jre/lib/amd64/server/:/usr/lib64/
 
 CMD ["/sbin/syslog-ng", "-Fedv"]
