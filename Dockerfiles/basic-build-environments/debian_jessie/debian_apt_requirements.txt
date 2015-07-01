@@ -15,7 +15,6 @@ libglib2.0-dev
 libhiredis-dev
 libnet1-dev
 libpython-dev
-libriemann-client-dev
 libssl-dev
 libsystemd-daemon-dev
 libwrap0-dev
