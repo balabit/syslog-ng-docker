@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 
-git clone -b ${BRANCH_NAME} ${OSE_GIT_REPO} ${OSE_SOURCE_DIR}
-cd ${OSE_SOURCE_DIR}
+git clone -b ${BRANCH_NAME} https://github.com/balabit/syslog-ng.git /syslog-ng-src
+cd /syslog-ng-src
 git pull
 ./autogen.sh
 mkdir build_dir && cd build_dir && mkdir -p ${INSTALL_DIR}

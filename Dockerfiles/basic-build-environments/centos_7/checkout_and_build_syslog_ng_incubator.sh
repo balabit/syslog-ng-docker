@@ -1,8 +1,8 @@
 #!/bin/bash -xe
 
 if [ ${BRANCH_NAME}=master ] ; then
-  git clone -b ${INCUBATOR_BRANCH_NAME} ${INCUBATOR_GIT_REPO} ${INCUBATOR_SOURCE_DIR}
-  cd ${INCUBATOR_SOURCE_DIR}
+  git clone -b ${INCUBATOR_BRANCH_NAME} https://github.com/balabit/syslog-ng-incubator.git /syslog-ng-incubator-src
+  cd /syslog-ng-incubator-src
   git pull
   autoreconf -i
   mkdir build_dir && cd build_dir && mkdir -p ${INSTALL_DIR}
