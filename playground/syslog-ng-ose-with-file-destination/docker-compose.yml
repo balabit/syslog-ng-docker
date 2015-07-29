@@ -1,7 +1,0 @@
-syslogngose:
-    image: balabit/ubuntu_syslog_ng_dev_37
-    volumes:
-        - working_dir/syslog-ng.conf:/working_dir/syslog-ng.conf
-        - working_dir/input_file.txt:/working_dir/input_file.txt
-    hostname: syslogngose
-    command: /opt/syslog-ng/sbin/syslog-ng -Fedv -f /working_dir/syslog-ng.conf
