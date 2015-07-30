@@ -1,0 +1,32 @@
+# other tools
+git
+gdb
+strace
+vim
+# required for autogen
+autoconf
+automake
+libtool
+pkg-config
+# required for configure
+bison
+flex
+libcap-dev
+libdbi-dev
+libesmtp-dev
+libevtlog-dev
+libgeoip-dev
+libglib2.0-dev
+libhiredis-dev
+libnet1-dev
+libpython-dev
+libssl-dev
+libriemann-client-dev
+libsystemd-daemon-dev
+libwrap0-dev
+openjdk-7-jdk
+uuid-dev
+# required for make
+make
+# required for make check
+python-pip
