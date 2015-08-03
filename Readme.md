@@ -30,9 +30,40 @@ sudo docker run --rm -p 514:514 -p 601:601 --name syslog-ng balabit/syslog-ng:la
 
 ### How to start syslog-ng container with custom syslog-ng configuration
   * Assume that we have a syslog-ng.conf file in an actual directory, in this case we can start syslog-ng container with this configuration in the following way
+  * For example we use the following configuration:
 
 ```
-sudo docker run --rm -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:latest
+@version: 3.6
+
+source s_udp { udp ( ip("0.0.0.0") ); };
+source s_tcp { tcp ( ip("0.0.0.0") ); };
+source s_syslog { syslog ( ip("0.0.0.0") ); };
+
+destination d_fudp { file ( "/tmp/output_udp.log" ); };
+destination d_ftcp { file ( "/tmp/output_tcp.log" ); };
+destination d_fsyslog { file ( "/tmp/output_syslog.log" ); };
+
+log {
+  source(s_udp);
+  destination(d_fudp);
+};
+
+log {
+  source(s_tcp);
+  destination(d_ftcp);
+};
+
+log {
+  source(s_syslog);
+  destination(d_fsyslog);
+};
+
+```
+
+  * With this configuration we can start balabit/syslog-ng:latest in the following way
+
+```
+sudo docker run --rm -p 514:514 -p 514:514/udp -p 601:601 --name syslog-ng -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:latest
 ```
 
 ### How to start syslog-ng container to use other containers volume:

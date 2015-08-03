@@ -21,8 +21,5 @@ RUN git clone https://github.com/talien/grok.git /root/grok && \
     make && \
     make install
 
-ADD pip-dependencies.txt .
-RUN pip install -r pip-dependencies.txt
-
-RUN mkdir /incubator-source
-VOLUME /incubator-source
+ADD libgrok.conf /etc/ld.so.conf.d/libgrok.conf
+RUN ldconfig

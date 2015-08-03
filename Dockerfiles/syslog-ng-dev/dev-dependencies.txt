@@ -22,7 +22,7 @@ libnet1-dev
 libpython-dev
 libssl-dev
 libriemann-client-dev
-libsystemd-daemon-dev
+libsystemd-dev
 libwrap0-dev
 openjdk-7-jdk
 uuid-dev

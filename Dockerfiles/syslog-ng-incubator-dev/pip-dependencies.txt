@@ -1,4 +1,0 @@
-pylint
-pep8
-nose
-ply

@@ -14,6 +14,7 @@ RUN cat dev-dependencies.txt | grep -v "#" | xargs apt-get install -y
 
 ADD openjdk-libjvm.conf /etc/ld.so.conf.d/openjdk-libjvm.conf
 ADD libsyslog-ng.conf /etc/ld.so.conf.d/libsyslog-ng.conf
+RUN ldconfig
 
 RUN mkdir /source
 VOLUME /source
