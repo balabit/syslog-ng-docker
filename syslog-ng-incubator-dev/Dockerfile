@@ -1,4 +1,4 @@
-FROM balabit/syslog-ng-dev:latest
+FROM balabit/syslog-ng-dev:3.6
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig/
