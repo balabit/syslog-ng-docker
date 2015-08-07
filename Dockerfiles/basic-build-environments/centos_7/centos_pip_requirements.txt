@@ -1,5 +1,0 @@
-# required for make check
-pylint
-pep8
-nose
-ply
