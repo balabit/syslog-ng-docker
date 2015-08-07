@@ -27,5 +27,5 @@ make install
 If the compilation and installation was successful you can run syslog-ng with the following command:
 
 ```bash
-/install/syslog-ng -Fedv
+/install/syslog-ng/sbin/syslog-ng -Fedv
 ```
