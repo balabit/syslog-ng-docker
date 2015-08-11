@@ -18,19 +18,19 @@ Please check the syslog-ng image tags at the official docker repository to know 
 Assume that the following ports are not used on host machine, because they can conflict: `514`, `601`:
 
 ```bash
-sudo docker run --rm -p 514:514 -p 601:601 --name syslog-ng balabit/syslog-ng:latest
+sudo docker run --rm -p 514:514 -p 601:601 --name syslog-ng balabit/syslog-ng:3.6
 ```
 By default syslog-ng will not print any debug messages to the console. If you want to see more debug messages you need to start the containers in this way:
 
 ```bash
-sudo docker run --rm -p 514:514 -p 601:601 --name syslog-ng balabit/syslog-ng:latest -edv
+sudo docker run --rm -p 514:514 -p 601:601 --name syslog-ng balabit/syslog-ng:3.6 -edv
 ```
 
 ## Using custom syslog-ng configuration
 You can override the default configuration by mounting a configuration file under `/etc/syslog-ng/syslog-ng.conf`:
 
 ```bash
-sudo docker run --rm -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:latest
+sudo docker run --rm -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:3.6
 ```
 
 ## Reading logs from other containers
@@ -58,7 +58,7 @@ log {
 Now we can start syslog-ng:
 
 ```bash
-sudo docker run --rm --volumes-from [containerID for apache2] -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:latest
+sudo docker run --rm --volumes-from [containerID for apache2] -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:3.6
 ```
 
 ## Entering into a container
