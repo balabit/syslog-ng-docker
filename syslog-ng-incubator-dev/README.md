@@ -1,5 +1,5 @@
 # `balabit/syslog-ng-incubator-dev`
-This image provides a development environment to build and install syslog-incubator-ng from source. You have to clone the source
+This image provides a development environment to build and install syslog-ng-incubator from source. You have to clone the source
 code of [syslog-ng-incubator](https://github.com/balabit/syslog-ng-incubator.git) into a directory on your host machine then you can mount it
 into the container (under `/source`).
 
