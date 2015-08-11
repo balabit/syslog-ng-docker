@@ -8,7 +8,7 @@ into the container (under `/source`).
 Assume that we have cloned syslog-ng's source into the `$HOME/syslog-ng` directory. The following commands starts a container mounted with the source:
 
 ```bash
-sudo docker run --rm -it -v $HOME/syslog-ng:/source balabit/syslog-ng-dev:latest /bin/bash
+sudo docker run --rm -it -v $HOME/syslog-ng:/source balabit/syslog-ng-dev:3.6 /bin/bash
 ```
 
 Within the image you can build and install syslog-ng:
@@ -29,4 +29,3 @@ If the compilation and installation was successful you can run syslog-ng with th
 ```bash
 /install/syslog-ng -Fedv
 ```
-

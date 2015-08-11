@@ -8,7 +8,7 @@ Assume that we have cloned syslog-ng-incubator's source into the `$HOME/syslog-n
 
 
 ```bash
-sudo docker run --rm -it -v $HOME/syslog-ng-incubator:/source balabit/syslog-ng-incubator-dev:latest /bin/bash
+sudo docker run --rm -it -v $HOME/syslog-ng-incubator:/source balabit/syslog-ng-incubator-dev:3.6 /bin/bash
 ```
 
 Within the image you can build and install syslog-ng-incubator:
