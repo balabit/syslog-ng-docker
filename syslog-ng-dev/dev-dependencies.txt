@@ -11,6 +11,7 @@ pkg-config
 # required for configure
 bison
 flex
+gradle-2.2.1
 libcap-dev
 libdbi-dev
 libesmtp-dev
@@ -24,6 +25,7 @@ libssl-dev
 libriemann-client-dev
 libsystemd-dev
 libwrap0-dev
+openjdk-7-jdk
 uuid-dev
 # required for make
 make
