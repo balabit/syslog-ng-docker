@@ -10,6 +10,9 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/sysl
 RUN apt-get update -qq && apt-get install -y \
     syslog-ng
 
+ADD openjdk-libjvm.conf /etc/ld.so.conf.d/openjdk-libjvm.conf
+RUN ldconfig
+
 EXPOSE 514
 EXPOSE 601
 EXPOSE 6514
