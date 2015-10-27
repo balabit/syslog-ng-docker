@@ -27,6 +27,8 @@ libsystemd-dev
 libwrap0-dev
 openjdk-7-jdk
 uuid-dev
+python-dev
+xsltproc
 # required for make
 make
 # required for make check
