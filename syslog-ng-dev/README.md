@@ -15,6 +15,7 @@ Within the image you can build and install syslog-ng:
 
 ```bash
 cd /source/
+pip install -r requirements.txt
 ./autogen.sh
 mkdir build
 cd build/
