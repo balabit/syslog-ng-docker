@@ -4,6 +4,7 @@ gdb
 strace
 vim
 # required for autogen
+autoconf-archive
 autoconf
 automake
 libtool
