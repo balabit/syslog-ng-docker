@@ -12,9 +12,6 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/sysl
 ADD dev-dependencies.txt .
 RUN apt-get update -qq && cat dev-dependencies.txt | grep -v "#" | xargs apt-get install -y
 
-ADD pip-dependencies.txt .
-RUN pip install -r pip-dependencies.txt
-
 ADD libsyslog-ng.conf /etc/ld.so.conf.d/libsyslog-ng.conf
 ADD openjdk-libjvm.conf /etc/ld.so.conf.d/openjdk-libjvm.conf
 RUN ldconfig
