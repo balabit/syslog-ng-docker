@@ -1,11 +1,11 @@
 # other tools
-git
 gdb
+git
 strace
 vim
 # required for autogen
-autoconf-archive
 autoconf
+autoconf-archive
 automake
 libtool
 pkg-config
@@ -22,15 +22,16 @@ libglib2.0-dev
 libhiredis-dev
 libnet1-dev
 libpython-dev
-libssl-dev
 libriemann-client-dev
+libssl-dev
 libsystemd-dev
 libwrap0-dev
 openjdk-7-jdk
-uuid-dev
 python-dev
+uuid-dev
 xsltproc
 # required for make
 make
 # required for make check
+libxml2-utils
 python-pip
