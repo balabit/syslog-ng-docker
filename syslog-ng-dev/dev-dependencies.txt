@@ -33,5 +33,6 @@ xsltproc
 # required for make
 make
 # required for make check
+criterion-dev
 libxml2-utils
 python-pip
