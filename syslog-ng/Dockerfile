@@ -13,8 +13,8 @@ RUN apt-get update -qq && apt-get install -y \
 ADD openjdk-libjvm.conf /etc/ld.so.conf.d/openjdk-libjvm.conf
 RUN ldconfig
 
-EXPOSE 514
-EXPOSE 601
-EXPOSE 6514
+EXPOSE 514/udp
+EXPOSE 601/tcp
+EXPOSE 6514/tcp
 
 ENTRYPOINT ["/usr/sbin/syslog-ng", "-F"]
