@@ -2,6 +2,9 @@ FROM debian:latest
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/
+ENV USERNAME=jenkins
+
+RUN adduser --disabled-password --gecos '' ${USERNAME}
 
 RUN apt-get update -qq && apt-get install -y \
     wget
