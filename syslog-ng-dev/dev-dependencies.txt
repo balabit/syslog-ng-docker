@@ -1,6 +1,7 @@
 # other tools
 gdb
 git
+lsof
 strace
 vim
 # required for autogen
