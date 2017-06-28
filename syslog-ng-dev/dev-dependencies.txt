@@ -31,7 +31,6 @@ openjdk-7-jdk
 python-dev
 uuid-dev
 xsltproc
-libmaxminddb-dev
 # required for make
 make
 # required for make check
