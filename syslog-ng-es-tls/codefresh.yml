@@ -1,0 +1,29 @@
+version: '1.0'
+
+steps:
+
+  build_image:
+    title: Build Docker Image
+    type: build
+    working_directory: ${{main_clone}}/syslog-ng-es-tls
+    image_name: sctechdev/pa-middleware
+    dockerfile: Dockerfile
+    tag: ${{CF_BRANCH}}
+
+  push_image_nexus_latest:
+    title: Push to Nexus Repo (latest)
+    type: push
+    candidate: ${{build_image}}
+    tag: latest
+    registry: sonatype-docker-internal
+    when:
+      branch:
+        only:
+          - master
+
+  push_image_neuxs_gitbranch_gitsha:
+    title: Push to Nexus Repo (gitbranch + gitsha)
+    type: push
+    candidate: ${{build_image}}
+    tag: ${{CF_BRANCH_TAG_NORMALIZED}}-${{CF_SHORT_REVISION}}
+    registry: sonatype-docker-internal
