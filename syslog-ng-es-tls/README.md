@@ -1,4 +1,4 @@
-# `balabit/syslog-ng-es-tls`
+# `balabit/syslog-ng-es-tls` 
   * Syslog-ng 3.10.1 is installed with Elastic Search libraries on top of Alpine base.
   * Within the container syslog-ng will start in foreground. This is useful because if there is some error with syslog-ng we can easily check the output console log through the `docker logs [containerID]` command
   * You can set the following properties using environment variables
