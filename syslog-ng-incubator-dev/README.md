@@ -1,4 +1,7 @@
 # `balabit/syslog-ng-incubator-dev`
+## DEPRECATED images
+These images are now outdated and deprecated. You can find their updated versions in the ['main syslog-ng repository']( https://github.com/balabit/syslog-ng/tree/master/dbld/images). The new images are built automatically.
+
 This image provides a development environment to build and install syslog-ng-incubator from source. You have to clone the source
 code of [syslog-ng-incubator](https://github.com/balabit/syslog-ng-incubator.git) into a directory on your host machine then you can mount it
 into the container (under `/source`).
