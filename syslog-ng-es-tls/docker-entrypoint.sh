@@ -12,7 +12,7 @@ echo "$CERT_KEY_VALUE" > /etc/syslog-ng/cert.d/client.key
 echo "$CERT_VALUE" > /etc/syslog-ng/cert.d/client.cert
 
 if [ -z "$RUNTIME_ARGS" ]; then
-  export RUNTIME_ARGS="F"
+  export RUNTIME_ARGS="Fevd"
 fi
 
 exec /usr/sbin/syslog-ng -$RUNTIME_ARGS -f /etc/syslog-ng/syslog-ng.conf
