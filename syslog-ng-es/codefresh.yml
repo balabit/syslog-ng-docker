@@ -5,8 +5,8 @@ steps:
   build_image:
     title: Build Docker Image
     type: build
-    working_directory: ${{main_clone}}/syslog-ng-es-tls
-    image_name: sctechdev/syslog-ng-es-tls
+    working_directory: ${{main_clone}}/syslog-ng-es
+    image_name: sctechdev/syslog-ng-es
     dockerfile: Dockerfile
     tag: ${{CF_BRANCH}}
 
