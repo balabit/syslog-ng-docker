@@ -7,6 +7,8 @@
 
 `ES_SERVER` - Elastic Search Hostname or IP
 
+`MAX_CONNECTIONS` Specifies the maximum number of simultaneous connections. (Default 10)
+
 `RUNTIME_ARGS` - Args for syslog-ng service. Defaults to `F` () options are listed below.
 
 ```bash
