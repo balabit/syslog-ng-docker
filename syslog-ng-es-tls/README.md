@@ -9,6 +9,8 @@
 
 `SYSLOG_TLS_PORT` - Syslog-NG TLS Port
 
+`MAX_CONNECTIONS` Specifies the maximum number of simultaneous connections. (Default 10)
+
 `CERT_KEY_VALUE` - Contents of your Cert Key file
 
 `CERT_VALUE` - Contents of your Cert file
