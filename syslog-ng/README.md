@@ -67,3 +67,6 @@ Assume that your running container has a name "syslog-ng". In this case we can e
 ```bash
 sudo docker exec -it syslog-ng /bin/bash
 ```
+
+## More information
+For detailed information on how to run your central log server in Docker and other Docker-related syslog-ng use cases, see the blog post [Your central log server in Docker] (https://syslog-ng.com/blog/central-log-server-docker/).
