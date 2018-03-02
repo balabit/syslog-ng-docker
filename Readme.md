@@ -9,4 +9,4 @@ This repository also contained the following images. However, these images are n
 * `balabit/syslog-ng-incubator-dev`: ***DEPRECATED*** development image for [syslog-ng-incubator](https://github.com/balabit/syslog-ng-incubator). It contains all packages to build and debug syslog-ng-incubator within the container.
 
 ## More information
-For detailed information on how to run your central log server in Docker and other Docker-related syslog-ng use cases, see the blog post [Your central log server in Docker] (https://syslog-ng.com/blog/central-log-server-docker/).
+For detailed information on how to run your central log server in Docker and other Docker-related syslog-ng use cases, see the blog post [Your central log server in Docker](https://syslog-ng.com/blog/central-log-server-docker/).
