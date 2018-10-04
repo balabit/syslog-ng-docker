@@ -70,3 +70,14 @@ sudo docker exec -it syslog-ng /bin/bash
 
 ## More information
 For detailed information on how to run your central log server in Docker and other Docker-related syslog-ng use cases, see the blog post [Your central log server in Docker](https://syslog-ng.com/blog/central-log-server-docker/).
+
+
+## FAQ
+
+### capabilities
+
+If the given configuration requires, syslog-ng tries to set some POSIX capabilities at startup, but (by default) Docker do not grant capabilities to the containers. Mainly there are three methods to circumvent this:
+ * If you do not require any capability (i.e. don't want to listen on ports under 1024 - NET_BIND_SERVICE), simply start syslog-ng with the `--no-caps` option.
+ * If you know precisely the type of capability you need, use the `--cap-add` option of the Docker service.
+ * (For development/testing purpose only!) To grant ALL of the capabilities to your container, start it with the `privileged` option. However, we do not recommend this method in production environments.
+
