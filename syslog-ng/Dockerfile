@@ -11,9 +11,7 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/sysl
 RUN apt-get update -qq && apt-get install -y \
     syslog-ng
 
-# With https://github.com/balabit/syslog-ng/commit/b095ac69314f3cb75aff3e873df416de22ede831
-# container detection was dropped from syslog-ng (detection was not reliable)
-RUN sed -i.bak 's/system()/system(exclude-kmsg(yes))/g' /etc/syslog-ng/syslog-ng.conf
+ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
 ADD openjdk-libjvm.conf /etc/ld.so.conf.d/openjdk-libjvm.conf
 RUN ldconfig
