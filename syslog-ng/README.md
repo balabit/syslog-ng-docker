@@ -27,11 +27,13 @@ sudo docker run -it -p 514:514/udp -p 601:601 --name syslog-ng balabit/syslog-ng
 ```
 
 ## Using custom syslog-ng configuration
-You can override the default configuration by mounting a configuration file under `/etc/syslog-ng/syslog-ng.conf`:
+You can extend the default configuration by mounting a configuration folder under `/etc/syslog-ng/conf.d/syslog-ng.conf`:
 
 ```bash
-sudo docker run -it -v "$PWD/syslog-ng.conf":/etc/syslog-ng/syslog-ng.conf balabit/syslog-ng:latest
+sudo docker run -it -v "$PWD/conf.d":/etc/syslog-ng/conf.d balabit/syslog-ng:latest
 ```
+
+The docker container does not accept any input by default a configuration file containing source, destination and log definitions is required.
 
 ## Reading logs from other containers
 An example is used to describe how syslog-ng can read logs from other containers.
@@ -80,4 +82,3 @@ If the given configuration requires, syslog-ng tries to set some POSIX capabilit
  * If you do not require any capability (i.e. don't want to listen on ports under 1024 - NET_BIND_SERVICE), simply start syslog-ng with the `--no-caps` option.
  * If you know precisely the type of capability you need, use the `--cap-add` option of the Docker service.
  * (For development/testing purpose only!) To grant ALL of the capabilities to your container, start it with the `privileged` option. However, we do not recommend this method in production environments.
-
