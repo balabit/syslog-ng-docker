@@ -63,6 +63,7 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
+# Syslog-ng manages its own capabilities as well, just make sure the two doesn't collide.
 securityContext: {}
   # capabilities:
   #   drop:
