@@ -46,26 +46,6 @@ spec:
           - mountPath: /var/log
             name: logs
         {{- end }}
-  ###
-        {{- if .Values.logrotate.enable }}
-          - name: logrotate
-            securityContext:
-              {{- toYaml .Values.securityContext | nindent 12 }}
-            image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-            imagePullPolicy: {{ .Values.image.pullPolicy }}
-            command:
-              -"/bin/logrotate"
-              -"--help"
-            volumeMounts:
-            - mountPath: /etc/syslog-ng/syslog-ng.conf
-              name: config
-              subPath: syslog-ng.conf
-          {{- if .Values.storage.enable }}
-            - mountPath: /var/log
-              name: logs
-          {{- end }}
-        {{- end }}
-  ###      
       volumes:
       - name: config
         configMap:
