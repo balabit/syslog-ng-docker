@@ -33,7 +33,7 @@ config: |
 
 storage:
   enable: True
-  storageClass: netapp
+  storageClass: ""
   size: 500Gi
   
 # Enable compressor to run a cron-job to compress files in /var/log/*-syslog older than retention_days
