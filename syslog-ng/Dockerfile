@@ -1,5 +1,6 @@
 FROM debian:stretch
-MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
+LABEL maintainer="Andras Mitzki <andras.mitzki@balabit.com>"
+
 
 RUN apt-get update -qq && apt-get install -y \
     wget \
