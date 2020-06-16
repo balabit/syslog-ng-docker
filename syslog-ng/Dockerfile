@@ -1,4 +1,5 @@
 FROM debian:stretch
+LABEL version="3.27.1"
 MAINTAINER Andras Mitzki <andras.mitzki@balabit.com>
 
 RUN apt-get update -qq && apt-get install -y \
