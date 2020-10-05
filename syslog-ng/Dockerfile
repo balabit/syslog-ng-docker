@@ -10,7 +10,7 @@ RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/sy
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
 
 RUN apt-get update -qq && apt-get install -y \
-    syslog-ng
+    libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
 
 ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
