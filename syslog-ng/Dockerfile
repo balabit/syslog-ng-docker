@@ -1,16 +1,20 @@
-FROM debian:stretch
+ARG ARCH=i386
+ARG VERSION=3.8.1-10
+FROM debian:stretch-slim
+ARG ARCH
+ARG VERSION
 LABEL maintainer="Andras Mitzki <andras.mitzki@balabit.com>"
 
 
 RUN apt-get update -qq && apt-get install -y \
-    wget \
-    gnupg2
+    wget:${ARCH} \
+    gnupg2:${ARCH}
 
 RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0/Release.key | apt-key add -
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
 
 RUN apt-get update -qq && apt-get install -y \
-    libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
+    libdbd-mysql:${ARCH} libdbd-pgsql:${ARCH} libdbd-sqlite3:${ARCH} syslog-ng:${ARCH}=${VERSION} syslog-ng-core:${ARCH}=${VERSION} syslog-ng-mod-mongodb:${ARCH}=${VERSION} syslog-ng-mod-sql:${ARCH}=${VERSION}
 
 ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
