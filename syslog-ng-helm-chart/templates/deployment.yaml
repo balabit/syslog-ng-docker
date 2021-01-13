@@ -13,8 +13,9 @@ spec:
       {{- include "syslog-ng.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
+        checksum/config: {{ tpl (toYaml .Values.config) . | sha256sum }}
+    {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
@@ -55,7 +56,7 @@ spec:
         persistentVolumeClaim:
           claimName: {{ include "syslog-ng.fullname" . }}-pvc
       {{- end }}
-      
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
