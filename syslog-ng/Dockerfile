@@ -1,6 +1,8 @@
 FROM debian:stretch
 LABEL maintainer="Andras Mitzki <andras.mitzki@balabit.com>"
 
+ARG SYSLOG_NG_VERSION
+RUN [ -n "${SYSLOG_NG_VERSION}" ] # Please provide the version of syslog-ng you wish to install. i.e.: --build-arg SYSLOG_NG_VERSION=3.31.2-1, or use the keyword "master" to install the latest version.
 
 RUN apt-get update -qq && apt-get install -y \
     wget \
@@ -8,9 +10,10 @@ RUN apt-get update -qq && apt-get install -y \
 
 RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0/Release.key | apt-key add -
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
+RUN apt-get update -qq
 
-RUN apt-get update -qq && apt-get install -y \
-    libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
+COPY install_syslog_ng_version.sh /tmp/
+RUN /tmp/install_syslog_ng_version.sh ${SYSLOG_NG_VERSION}
 
 ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
