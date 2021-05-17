@@ -1,12 +1,16 @@
+{{- /*
+While the ServiceType "LoadBalancer" doesn't support mutliple protocols, 2
+Service objects are needed.
+*/}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "syslog-ng.fullname" . }}
+  name: {{ include "syslog-ng.fullname" . }}-udp
   labels:
     {{- include "syslog-ng.labels" . | nindent 4 }}
 spec:
   {{- if eq .Values.service.type "externalip" }}
-  
+
   {{- with .Values.service.externalIPs }}
   externalIPs:
     {{- toYaml . | nindent 3 }}
@@ -19,9 +23,29 @@ spec:
       port: 514
       targetPort: 514
       protocol: UDP
+  selector:
+    {{- include "syslog-ng.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "syslog-ng.fullname" . }}-tcp
+  labels:
+    {{- include "syslog-ng.labels" . | nindent 4 }}
+spec:
+  {{- if eq .Values.service.type "externalip" }}
+
+  {{- with .Values.service.externalIPs }}
+  externalIPs:
+    {{- toYaml . | nindent 3 }}
+  {{- end }}
+  {{- else}}
+  type: {{ .Values.service.type }}
+  {{- end }}
+  ports:
     - name: tcp-port
       port: 601
       targetPort: 601
-      protocol: TCP 
+      protocol: TCP
   selector:
     {{- include "syslog-ng.selectorLabels" . | nindent 4 }}
