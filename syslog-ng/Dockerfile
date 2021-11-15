@@ -6,8 +6,8 @@ RUN apt-get update -qq && apt-get install -y \
     wget \
     gnupg2
 
-RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_10/Release.key | apt-key add -
-RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_10 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
+RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | apt-key add - && \
+  echo "deb https://ose-repo.syslog-ng.com/apt/ stable debian-buster" | tee --append /etc/apt/sources.list.d/syslog-ng-ose.list
 
 RUN apt-get update -qq && apt-get install -y \
     libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
