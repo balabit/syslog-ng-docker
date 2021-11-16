@@ -4,6 +4,7 @@ LABEL maintainer="Andras Mitzki <andras.mitzki@balabit.com>"
 
 RUN apt-get update -qq && apt-get install -y \
     wget \
+    ca-certificates \
     gnupg2
 
 RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | gpg --dearmor > /usr/share/keyrings/ose-repo-archive-keyring.gpg && \
