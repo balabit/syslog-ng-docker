@@ -6,8 +6,8 @@ RUN apt-get update -qq && apt-get install -y \
     wget \
     gnupg2
 
-RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | apt-key add - && \
-  echo "deb https://ose-repo.syslog-ng.com/apt/ stable debian-testing" | tee --append /etc/apt/sources.list.d/syslog-ng-ose.list
+RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | gpg --dearmor > /usr/share/keyrings/ose-repo-archive-keyring.gpg && \
+  echo "deb [ signed-by=/usr/share/keyrings/ose-repo-archive-keyring.gpg ] https://ose-repo.syslog-ng.com/apt/ stable debian-testing" | tee --append /etc/apt/sources.list.d/syslog-ng-ose.list
 
 RUN apt-get update -qq && apt-get install -y \
     libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
