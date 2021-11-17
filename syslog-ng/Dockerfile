@@ -1,21 +1,19 @@
-FROM debian:buster
+FROM debian:testing
 LABEL maintainer="Andras Mitzki <andras.mitzki@balabit.com>"
 
 
 RUN apt-get update -qq && apt-get install -y \
     wget \
+    ca-certificates \
     gnupg2
 
-RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_10/Release.key | apt-key add -
-RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_10 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
+RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | gpg --dearmor > /usr/share/keyrings/ose-repo-archive-keyring.gpg && \
+  echo "deb [ signed-by=/usr/share/keyrings/ose-repo-archive-keyring.gpg ] https://ose-repo.syslog-ng.com/apt/ stable debian-testing" | tee --append /etc/apt/sources.list.d/syslog-ng-ose.list
 
 RUN apt-get update -qq && apt-get install -y \
     libdbd-mysql libdbd-pgsql libdbd-sqlite3 syslog-ng
 
 ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
-
-RUN find /usr/lib/ -name 'libjvm.so*' | xargs dirname | tee --append /etc/ld.so.conf.d/openjdk-libjvm.conf
-RUN ldconfig
 
 EXPOSE 514/udp
 EXPOSE 601/tcp
